@@ -8,11 +8,6 @@ body {
     padding: 4rem 1rem;
     color: util.$lg;
 
-    @include util.breakpoint-min(Tablet-l) {
-        display: grid;
-        place-content: center;
-    }
-
     .container {
         display: grid;
         gap: 1.5rem;
@@ -20,6 +15,8 @@ body {
         @include util.breakpoint-min(Tablet-l) {
             grid-template-columns: auto auto auto auto;
             grid-template-rows: auto auto;
+            max-width: 80%;
+            margin: auto;
         }
 
         @include util.breakpoint-md(Tablet-l, Mobile) {
