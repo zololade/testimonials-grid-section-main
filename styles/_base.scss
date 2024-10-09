@@ -1,0 +1,85 @@
+@forward "./resets/reset";
+@forward "./shared/index";
+@use "./utilities/index" as util;
+
+
+body {
+    background-color: util.$lgb;
+    padding: 4rem 1rem;
+    color: util.$lg;
+
+    @include util.breakpoint-min(Tablet-l) {
+        display: grid;
+        place-content: center;
+    }
+
+    .container {
+        display: grid;
+        gap: 1.5rem;
+
+        @include util.breakpoint-min(Tablet-l) {
+            grid-template-columns: auto auto auto auto;
+            grid-template-rows: auto auto;
+        }
+
+        @include util.breakpoint-md(Tablet-l, Mobile) {
+            grid-template-columns: auto auto;
+        }
+
+        .card--1 {
+            background-color: util.$mv;
+
+            .user__image {
+                border: 2px solid hsl(263, 62%, 67%);
+            }
+
+            @include util.breakpoint-min(Tablet-l) {
+                grid-column: 1/ span 2;
+            }
+        }
+
+        .card--2 {
+            background-color: util.$vdg;
+
+            .user__image {
+                border: 2px solid util.$lg;
+            }
+        }
+
+        .card--3 {
+            background-color: util.$white;
+        }
+
+        .card--4 {
+            background-color: util.$vdb;
+
+            @include util.breakpoint-min(Tablet-l) {
+                grid-column: 2/4;
+            }
+
+            .user__image {
+                border: 2px solid util.$mv;
+            }
+        }
+
+        .card--5 {
+            background-color: util.$white;
+
+            @include util.breakpoint-min(Tablet-l) {
+                grid-area: 1/4/3/5;
+            }
+
+            @include util.breakpoint-md(Tablet-l, Mobile) {
+                grid-column: 1/3;
+            }
+        }
+
+
+        .card--3,
+        .card--5 {
+
+            color: util.$vdg;
+        }
+
+    }
+}
